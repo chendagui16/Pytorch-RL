@@ -28,9 +28,9 @@ value_loss_coef = 0.5
 num_frames_per_proc = 5  # num_frames_per_proc * num_procs = batch_size
 train_epochs = 300000
 test_episode = 10
-log_interval = 500
-test_interval = 5000
-save_interval = 20000
+log_interval = 100
+test_interval = 1000
+save_interval = 1000
 
 env = make_env('BreakoutNoFrameskip-v4', seed, num_procs)
 in_ch = env.observation_space.shape[-1]
