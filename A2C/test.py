@@ -14,10 +14,11 @@ from __future__ import division
 
 import argparse
 import torch
+from model import CNNModel
 from a2c_agent import ObsPreproc, TestAgent
 import sys
 sys.path.append('..')
-from common import CNNModel, make_env  # noqa
+from common import make_env  # noqa
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--model_path', type=str, default='./ckpt.pth', help='The model path')

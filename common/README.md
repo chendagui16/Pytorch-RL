@@ -1,7 +1,5 @@
 # Common 类
 
-`model`中包含一些常用的模型
-
 `env`中包含一些常用的环境wrapper（参考了[openai-baseline](https://github.com/openai/baselines))
 
 特别地：
