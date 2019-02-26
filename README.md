@@ -39,10 +39,11 @@ python test.py --model_path ./pretrained.pth
 
 ## 文件结构
 
-`Common`中包含了常用的环境wrapper，以及常用的神经网络模型
+`Common`中包含了常用的环境wrapper.
 
 其他每个文件夹包含某一个特定的算法。其中可能会包含如下的代码：
 
+* `model.py` 模型文件
 * `run.py` 用于训练
 * `test.py` 用于测试
 * `a2c_agent.py` (以A2C为例)

@@ -1,7 +1,6 @@
-from .model import CNNModel
 from .env import make_env
 
-__all__ = ['CNNModel', 'make_env', 'print_dict']
+__all__ = ['make_env', 'print_dict']
 
 
 def print_dict(*dicts):

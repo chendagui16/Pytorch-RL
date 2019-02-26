@@ -14,9 +14,10 @@ from __future__ import division
 
 import torch
 import sys
+from model import CNNModel
 from a2c_agent import A2CAgent, ObsPreproc, TestAgent
 sys.path.append('..')
-from common import CNNModel, make_env, print_dict  # noqa
+from common import make_env, print_dict  # noqa
 
 seed = 1000
 num_procs = 16   # The number of processes
