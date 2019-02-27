@@ -37,6 +37,10 @@ cd A2C
 python test.py --model_path ./pretrained.pth
 ```
 
+这是A2C的结果
+
+![A2C_Result](./A2C/Result.gif)
+
 ## 文件结构
 
 `Common`中包含了常用的环境wrapper.
