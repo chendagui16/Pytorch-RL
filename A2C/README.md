@@ -1,10 +1,10 @@
 # A2C
 这里只考虑了Breakout游戏。
 
-以下是使用pretrained分支下的模型测试的结果
+测试pretrained.pth的效果
 
 ```shell
-git checkout pretrained
+cd A2C
 python test.py --model_path ./pretrained.pth
 ```
 

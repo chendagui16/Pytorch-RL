@@ -27,13 +27,11 @@ cd A2C
 python test.py
 ```
 
-> 注意到，在pretrained的分支上存储了我所训练的一些模型（并未充分训练，但是已经能取得一些好的效果），可以用来测试。
+> 注意到，在pretrained.pth存储了我所训练的模型（并未充分训练，但是已经能取得一些好的效果），可以用来测试效果。
 
 使用pretrained的模型进行测试
 
 ```shell
-git checkout pretrained
-cd A2C
 python test.py --model_path ./pretrained.pth
 ```
 
