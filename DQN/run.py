@@ -13,19 +13,21 @@ from __future__ import print_function
 from __future__ import division
 
 import torch
-from env import make_env
+import sys
 from model import CNNModel
 from dqn_agent import DQNAgent, ObsPreproc, LinearSchedule, TestAgent
+sys.path.append('..')
+from common import make_env, print_dict  # noqa
 
 seed = 1000
 num_procs = 8
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 lr = 1e-4
 gamma = 0.99
-train_epochs = 1000000
+train_epochs = 300000
 batch_size = 40
-buffer_size = 1000
-learning_start = 1000   # Start learning after some steps
+buffer_size = 5000
+learning_start = 10000   # Start learning after some steps
 final_epsilon = 0.1   # Final epsilon
 update_freq = 4   # update frequency
 update_times = 4  # update times
@@ -33,7 +35,7 @@ test_episode = 10
 log_interval = 100
 test_interval = 1000
 save_interval = 1000
-update_target_interval = 10
+update_target_interval = 100
 
 env = make_env('BreakoutNoFrameskip-v4', seed, num_procs)
 in_ch = env.observation_space.shape[-1]
@@ -43,21 +45,7 @@ model = CNNModel(in_ch, n_action)
 target_model = CNNModel(in_ch, n_action)
 obs_preproc = ObsPreproc(device=device)
 agent = DQNAgent(model, target_model, env, obs_preproc, device, lr, gamma, num_procs, batch_size, buffer_size)
-exploration = LinearSchedule(200000, final_p=final_epsilon, initial_p=1.0)
-
-
-def print_dict(*dicts):
-    string = []
-    for d in dicts:
-        for k, v in d.items():
-            if abs(v) > 10:
-                string.append('{}: {: 1.0f}'.format(k, v))
-            elif abs(v) > 1:
-                string.append('{}: {: 1.2f}'.format(k, v))
-            else:
-                string.append('{}: {: 1.3f}'.format(k, v))
-    string = '  |  '.join(string)
-    print(string)
+exploration = LinearSchedule(400000, final_p=final_epsilon, initial_p=1.0)
 
 
 test_env = make_env('BreakoutNoFrameskip-v4', seed, 1, clip_reward=False)
